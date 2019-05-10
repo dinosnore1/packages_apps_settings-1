@@ -23,7 +23,7 @@
 
     <!-- blaze Logo Header -->
     <Preference 
-        android:key="gz_logo"
+        android:key="bz_logo"
         android:order="-500"
         android:layout="@layout/blaze_logo" />
 
