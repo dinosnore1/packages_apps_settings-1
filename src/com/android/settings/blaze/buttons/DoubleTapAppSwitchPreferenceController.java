@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 gzosp
+ * Copyright (C) 2018 blaze
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.settings.gzosp.buttons;
+package com.android.settings.blaze.buttons;
 
 import android.content.Context;
 import android.os.UserHandle;
@@ -27,9 +27,9 @@ import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
-import static android.provider.Settings.System.KEY_ASSIST_LONG_PRESS_ACTION;
+import static android.provider.Settings.System.KEY_APP_SWITCH_DOUBLE_TAP_ACTION;
 
-public class LongPressAssistPreferenceController extends BasePreferenceController
+public class DoubleTapAppSwitchPreferenceController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
 
     private Context mContext;
@@ -38,7 +38,7 @@ public class LongPressAssistPreferenceController extends BasePreferenceControlle
     private int mDefaultBehavior;
     private final String mKey;
 
-    public LongPressAssistPreferenceController(Context context, String key) {
+    public DoubleTapAppSwitchPreferenceController(Context context, String key) {
         super(context, key);
         mContext = context;
         mKey = key;
@@ -59,23 +59,26 @@ public class LongPressAssistPreferenceController extends BasePreferenceControlle
         super.displayPreference(screen);
         mPref = (ListPreference) screen.findPreference(getPreferenceKey());
         if (mPref == null) return;
+        boolean isQuickStep = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED, 0) != 0;
         mDefaultBehavior = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_longPressOnAssistKeyBehavior);
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_ASSIST_LONG_PRESS_ACTION, mDefaultBehavior);
+                com.android.internal.R.integer.config_doubleTapOnAppSwitchKeyBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_APP_SWITCH_DOUBLE_TAP_ACTION, mDefaultBehavior);
         mPref.setValue(Integer.toString(value));
+        mPref.setEnabled(isQuickStep ? false : true);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         int value = Integer.parseInt((String) newValue);
-        Settings.System.putInt(mContext.getContentResolver(), KEY_ASSIST_LONG_PRESS_ACTION, value);
+        Settings.System.putInt(mContext.getContentResolver(), KEY_APP_SWITCH_DOUBLE_TAP_ACTION, value);
         refreshSummary(preference);
         return true;
     }
 
     @Override
     public CharSequence getSummary() {
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_ASSIST_LONG_PRESS_ACTION, mDefaultBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_APP_SWITCH_DOUBLE_TAP_ACTION, mDefaultBehavior);
         int index = mPref.findIndexOfValue(Integer.toString(value));
         return mPref.getEntries()[index];
     }

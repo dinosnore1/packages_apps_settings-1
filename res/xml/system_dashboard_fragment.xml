@@ -21,11 +21,11 @@
     android:title="@string/header_category_system"
     settings:initialExpandedChildrenCount="4">
 
-    <!-- Gzosp Logo Header -->
+    <!-- blaze Logo Header -->
     <Preference 
         android:key="gz_logo"
         android:order="-500"
-        android:layout="@layout/gzosp_logo" />
+        android:layout="@layout/blaze_logo" />
 
     <Preference
         android:key="gesture_settings"
@@ -42,8 +42,8 @@
         android:summary="@string/button_settings_title_summary"
         android:icon="@drawable/ic_settings_buttons"
         android:order="-70"
-        android:fragment="com.android.settings.gzosp.dashboard.ButtonSettings"
-        settings:controller="com.android.settings.gzosp.dashboard.ButtonSettingsPreferenceController"/>
+        android:fragment="com.android.settings.blaze.dashboard.ButtonSettings"
+        settings:controller="com.android.settings.blaze.dashboard.ButtonSettingsPreferenceController"/>
 
     <!-- Backup -->
     <Preference

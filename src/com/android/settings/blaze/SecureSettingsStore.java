@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 gzosp
+ * Copyright (C) 2018 blaze
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.gzosp;
+package com.android.settings.blaze;
 
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;

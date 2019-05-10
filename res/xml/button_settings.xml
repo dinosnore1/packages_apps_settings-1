@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2018 gzosp
+  Copyright (C) 2018 blaze
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -40,14 +40,14 @@
             android:title="@string/long_press_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.LongPressHomePreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.LongPressHomePreferenceController" />
 
         <ListPreference
             android:key="home_key_double_tap"
             android:title="@string/double_tap_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.DoubleTapHomePreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.DoubleTapHomePreferenceController" />
 
     </PreferenceCategory>
 
@@ -60,14 +60,14 @@
             android:title="@string/long_press_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.LongPressBackPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.LongPressBackPreferenceController" />
 
         <ListPreference
             android:key="back_key_double_tap"
             android:title="@string/double_tap_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.DoubleTapBackPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.DoubleTapBackPreferenceController" />
 
     </PreferenceCategory>
 
@@ -80,14 +80,14 @@
             android:title="@string/long_press_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.LongPressMenuPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.LongPressMenuPreferenceController" />
 
         <ListPreference
             android:key="menu_key_double_tap"
             android:title="@string/double_tap_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.DoubleTapMenuPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.DoubleTapMenuPreferenceController" />
 
     </PreferenceCategory>
 
@@ -100,14 +100,14 @@
             android:title="@string/long_press_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.LongPressAssistPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.LongPressAssistPreferenceController" />
 
         <ListPreference
             android:key="assist_key_double_tap"
             android:title="@string/double_tap_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.DoubleTapAssistPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.DoubleTapAssistPreferenceController" />
 
     </PreferenceCategory>
 
@@ -120,14 +120,14 @@
             android:title="@string/long_press_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.LongPressAppSwitchPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.LongPressAppSwitchPreferenceController" />
 
         <ListPreference
             android:key="app_switch_key_double_tap"
             android:title="@string/double_tap_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.DoubleTapAppSwitchPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.DoubleTapAppSwitchPreferenceController" />
 
     </PreferenceCategory>
 
@@ -140,14 +140,14 @@
             android:title="@string/long_press_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.LongPressCameraPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.LongPressCameraPreferenceController" />
 
         <ListPreference
             android:key="camera_key_double_tap"
             android:title="@string/double_tap_title"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values"
-            settings:controller="com.android.settings.gzosp.buttons.DoubleTapCameraPreferenceController" />
+            settings:controller="com.android.settings.blaze.buttons.DoubleTapCameraPreferenceController" />
 
     </PreferenceCategory>
 

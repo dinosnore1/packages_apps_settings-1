@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 gzosp
+ * Copyright (C) 2018 blaze
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.settings.gzosp.buttons;
+package com.android.settings.blaze.buttons;
 
 import android.content.Context;
 import android.os.UserHandle;
@@ -27,9 +27,9 @@ import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
-import static android.provider.Settings.System.KEY_CAMERA_LONG_PRESS_ACTION;
+import static android.provider.Settings.System.KEY_CAMERA_DOUBLE_TAP_ACTION;
 
-public class LongPressCameraPreferenceController extends BasePreferenceController
+public class DoubleTapCameraPreferenceController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
 
     private Context mContext;
@@ -38,7 +38,7 @@ public class LongPressCameraPreferenceController extends BasePreferenceControlle
     private int mDefaultBehavior;
     private final String mKey;
 
-    public LongPressCameraPreferenceController(Context context, String key) {
+    public DoubleTapCameraPreferenceController(Context context, String key) {
         super(context, key);
         mContext = context;
         mKey = key;
@@ -60,22 +60,22 @@ public class LongPressCameraPreferenceController extends BasePreferenceControlle
         mPref = (ListPreference) screen.findPreference(getPreferenceKey());
         if (mPref == null) return;
         mDefaultBehavior = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_longPressOnCameraKeyBehavior);
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_CAMERA_LONG_PRESS_ACTION, mDefaultBehavior);
+                com.android.internal.R.integer.config_doubleTapOnCameraKeyBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_CAMERA_DOUBLE_TAP_ACTION, mDefaultBehavior);
         mPref.setValue(Integer.toString(value));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         int value = Integer.parseInt((String) newValue);
-        Settings.System.putInt(mContext.getContentResolver(), KEY_CAMERA_LONG_PRESS_ACTION, value);
+        Settings.System.putInt(mContext.getContentResolver(), KEY_CAMERA_DOUBLE_TAP_ACTION, value);
         refreshSummary(preference);
         return true;
     }
 
     @Override
     public CharSequence getSummary() {
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_CAMERA_LONG_PRESS_ACTION, mDefaultBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_CAMERA_DOUBLE_TAP_ACTION, mDefaultBehavior);
         int index = mPref.findIndexOfValue(Integer.toString(value));
         return mPref.getEntries()[index];
     }

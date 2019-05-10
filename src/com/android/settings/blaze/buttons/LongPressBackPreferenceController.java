@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 gzosp
+ * Copyright (C) 2018 blaze
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.settings.gzosp.buttons;
+package com.android.settings.blaze.buttons;
 
 import android.content.Context;
 import android.os.UserHandle;
@@ -27,9 +27,9 @@ import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
-import static android.provider.Settings.System.KEY_HOME_LONG_PRESS_ACTION;
+import static android.provider.Settings.System.KEY_BACK_LONG_PRESS_ACTION;
 
-public class LongPressHomePreferenceController extends BasePreferenceController
+public class LongPressBackPreferenceController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
 
     private Context mContext;
@@ -38,7 +38,7 @@ public class LongPressHomePreferenceController extends BasePreferenceController
     private int mDefaultBehavior;
     private final String mKey;
 
-    public LongPressHomePreferenceController(Context context, String key) {
+    public LongPressBackPreferenceController(Context context, String key) {
         super(context, key);
         mContext = context;
         mKey = key;
@@ -60,22 +60,22 @@ public class LongPressHomePreferenceController extends BasePreferenceController
         mPref = (ListPreference) screen.findPreference(getPreferenceKey());
         if (mPref == null) return;
         mDefaultBehavior = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_longPressOnHomeKeyBehavior);
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_HOME_LONG_PRESS_ACTION, mDefaultBehavior);
+                com.android.internal.R.integer.config_longPressOnBackKeyBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_BACK_LONG_PRESS_ACTION, mDefaultBehavior);
         mPref.setValue(Integer.toString(value));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         int value = Integer.parseInt((String) newValue);
-        Settings.System.putInt(mContext.getContentResolver(), KEY_HOME_LONG_PRESS_ACTION, value);
+        Settings.System.putInt(mContext.getContentResolver(), KEY_BACK_LONG_PRESS_ACTION, value);
         refreshSummary(preference);
         return true;
     }
 
     @Override
     public CharSequence getSummary() {
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_HOME_LONG_PRESS_ACTION, mDefaultBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_BACK_LONG_PRESS_ACTION, mDefaultBehavior);
         int index = mPref.findIndexOfValue(Integer.toString(value));
         return mPref.getEntries()[index];
     }

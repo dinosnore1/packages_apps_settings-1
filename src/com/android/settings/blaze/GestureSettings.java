@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.android.settings.gzosp;
+package com.android.settings.blaze;
 
 import com.android.settings.SettingsPreferenceFragment;
 

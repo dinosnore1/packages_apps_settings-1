@@ -72,6 +72,6 @@
     <Preference
         android:key="gesture_settings"
         android:title="@string/gesture_settings_title"
-        android:fragment="com.android.settings.gzosp.GestureSettings" />
+        android:fragment="com.android.settings.blaze.GestureSettings" />
 
 </PreferenceScreen>

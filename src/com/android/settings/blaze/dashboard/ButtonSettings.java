@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 gzosp
+ * Copyright (C) 2018 blaze
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.gzosp.dashboard;
+package com.android.settings.blaze.dashboard;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -31,20 +31,20 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
-import com.android.settings.gzosp.buttons.ButtonBrightnessPreferenceController;
-import com.android.settings.gzosp.buttons.DoubleTapAppSwitchPreferenceController;
-import com.android.settings.gzosp.buttons.DoubleTapAssistPreferenceController;
-import com.android.settings.gzosp.buttons.DoubleTapBackPreferenceController;
-import com.android.settings.gzosp.buttons.DoubleTapCameraPreferenceController;
-import com.android.settings.gzosp.buttons.DoubleTapHomePreferenceController;
-import com.android.settings.gzosp.buttons.DoubleTapMenuPreferenceController;
-import com.android.settings.gzosp.buttons.LongPressAppSwitchPreferenceController;
-import com.android.settings.gzosp.buttons.LongPressAssistPreferenceController;
-import com.android.settings.gzosp.buttons.LongPressBackPreferenceController;
-import com.android.settings.gzosp.buttons.LongPressCameraPreferenceController;
-import com.android.settings.gzosp.buttons.LongPressHomePreferenceController;
-import com.android.settings.gzosp.buttons.LongPressMenuPreferenceController;
-import com.android.settings.gzosp.buttons.NavigationBarPreferenceController;
+import com.android.settings.blaze.buttons.ButtonBrightnessPreferenceController;
+import com.android.settings.blaze.buttons.DoubleTapAppSwitchPreferenceController;
+import com.android.settings.blaze.buttons.DoubleTapAssistPreferenceController;
+import com.android.settings.blaze.buttons.DoubleTapBackPreferenceController;
+import com.android.settings.blaze.buttons.DoubleTapCameraPreferenceController;
+import com.android.settings.blaze.buttons.DoubleTapHomePreferenceController;
+import com.android.settings.blaze.buttons.DoubleTapMenuPreferenceController;
+import com.android.settings.blaze.buttons.LongPressAppSwitchPreferenceController;
+import com.android.settings.blaze.buttons.LongPressAssistPreferenceController;
+import com.android.settings.blaze.buttons.LongPressBackPreferenceController;
+import com.android.settings.blaze.buttons.LongPressCameraPreferenceController;
+import com.android.settings.blaze.buttons.LongPressHomePreferenceController;
+import com.android.settings.blaze.buttons.LongPressMenuPreferenceController;
+import com.android.settings.blaze.buttons.NavigationBarPreferenceController;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;

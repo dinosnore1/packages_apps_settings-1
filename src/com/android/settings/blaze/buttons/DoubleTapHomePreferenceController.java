@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 gzosp
+ * Copyright (C) 2018 blaze
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.settings.gzosp.buttons;
+package com.android.settings.blaze.buttons;
 
 import android.content.Context;
 import android.os.UserHandle;
@@ -27,9 +27,9 @@ import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
-import static android.provider.Settings.System.KEY_MENU_DOUBLE_TAP_ACTION;
+import static android.provider.Settings.System.KEY_HOME_DOUBLE_TAP_ACTION;
 
-public class DoubleTapMenuPreferenceController extends BasePreferenceController
+public class DoubleTapHomePreferenceController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
 
     private Context mContext;
@@ -38,7 +38,7 @@ public class DoubleTapMenuPreferenceController extends BasePreferenceController
     private int mDefaultBehavior;
     private final String mKey;
 
-    public DoubleTapMenuPreferenceController(Context context, String key) {
+    public DoubleTapHomePreferenceController(Context context, String key) {
         super(context, key);
         mContext = context;
         mKey = key;
@@ -60,22 +60,22 @@ public class DoubleTapMenuPreferenceController extends BasePreferenceController
         mPref = (ListPreference) screen.findPreference(getPreferenceKey());
         if (mPref == null) return;
         mDefaultBehavior = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_doubleTapOnMenuKeyBehavior);
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_MENU_DOUBLE_TAP_ACTION, mDefaultBehavior);
+                com.android.internal.R.integer.config_doubleTapOnHomeKeyBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_HOME_DOUBLE_TAP_ACTION, mDefaultBehavior);
         mPref.setValue(Integer.toString(value));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         int value = Integer.parseInt((String) newValue);
-        Settings.System.putInt(mContext.getContentResolver(), KEY_MENU_DOUBLE_TAP_ACTION, value);
+        Settings.System.putInt(mContext.getContentResolver(), KEY_HOME_DOUBLE_TAP_ACTION, value);
         refreshSummary(preference);
         return true;
     }
 
     @Override
     public CharSequence getSummary() {
-        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_MENU_DOUBLE_TAP_ACTION, mDefaultBehavior);
+        int value = Settings.System.getInt(mContext.getContentResolver(), KEY_HOME_DOUBLE_TAP_ACTION, mDefaultBehavior);
         int index = mPref.findIndexOfValue(Integer.toString(value));
         return mPref.getEntries()[index];
     }

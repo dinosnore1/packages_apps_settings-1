@@ -49,7 +49,7 @@
     </com.android.settingslib.RestrictedPreference>
 
     <!-- Show Network Traffic State on Statusbar -->
-    <com.android.settings.gzosp.SystemSettingSwitchPreference
+    <com.android.settings.blaze.SystemSettingSwitchPreference
         android:key="network_traffic_state"
         android:title="@string/network_traffic_state_title"
         android:icon="@drawable/ic_network_traffic"

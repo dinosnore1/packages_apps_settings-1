@@ -1,4 +1,4 @@
-/*
+//*
  * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ package com.android.settings.display;
 import android.content.Context;
 import android.support.v7.preference.Preference;
 
-import com.android.internal.util.gzosp.GzospUtils;
+import com.android.internal.util.blaze.blazeUtils;
 
 import com.android.settings.R;
 import com.android.settings.core.PreferenceControllerMixin;
@@ -46,6 +46,6 @@ public class AmbientDisplayCustomPreferenceController extends AbstractPreference
 
     @Override
     public boolean isAvailable() {
-        return GzospUtils.isPackageInstalled(mContext.getApplicationContext(), PACKAGE_CUSTOM_DOZE);
+        return blazeUtils.isPackageInstalled(mContext.getApplicationContext(), PACKAGE_CUSTOM_DOZE);
     }
 }
